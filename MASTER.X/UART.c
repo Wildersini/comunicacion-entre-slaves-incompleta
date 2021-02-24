@@ -1,0 +1,1 @@
+    TXSTAbits.CSRC = 0;
