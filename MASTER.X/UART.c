@@ -7,13 +7,15 @@ void wilder (void) {
 }
 
 void conf_tx (void) {
+ 
     TXSTAbits.CSRC = 0;
     TXSTAbits.TX9  = 0;
-    TXSTAbits.TXEN = 1;
     TXSTAbits.SYNC = 0;
     TXSTAbits.BRGH = 0;
     TXSTAbits.TRMT = 0;
     TXSTAbits.TX9D = 0;
+    RCSTAbits.SPEN = 1;
+    TXSTAbits.TXEN = 1;
 }
 
 void conf_rc (void) {
@@ -24,9 +26,10 @@ void conf_rc (void) {
     RCREG = 0;
 }
 
-void escribir_UART (uint8_t a) {
-    while (!TRMT);
+void escribir_UART (int a) {
+      while (TXSTAbits.TRMT == 0){}
     TXREG = a;
+
 }
 
 void W_USART_S (char* a) {

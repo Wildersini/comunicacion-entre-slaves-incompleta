@@ -1,4 +1,4 @@
-# 1 "SLAVE_3.c"
+# 1 "SPI.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,13 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "SLAVE_3.c" 2
+# 1 "SPI.c" 2
+# 1 "./SPI.h" 1
+
+
+
+
+
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2487,164 +2493,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 1 "SLAVE_3.c" 2
-
-# 1 "C:\\Users\\prelu\\Desktop\\MP\\pic\\include\\c90\\stdint.h" 1 3
-# 13 "C:\\Users\\prelu\\Desktop\\MP\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int8_t;
-
-
-
-
-
-
-typedef signed int int16_t;
-
-
-
-
-
-
-
-typedef __int24 int24_t;
-
-
-
-
-
-
-
-typedef signed long int int32_t;
-# 52 "C:\\Users\\prelu\\Desktop\\MP\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint8_t;
-
-
-
-
-
-typedef unsigned int uint16_t;
-
-
-
-
-
-
-typedef __uint24 uint24_t;
-
-
-
-
-
-
-typedef unsigned long int uint32_t;
-# 88 "C:\\Users\\prelu\\Desktop\\MP\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int_least8_t;
-
-
-
-
-
-
-
-typedef signed int int_least16_t;
-# 109 "C:\\Users\\prelu\\Desktop\\MP\\pic\\include\\c90\\stdint.h" 3
-typedef __int24 int_least24_t;
-# 118 "C:\\Users\\prelu\\Desktop\\MP\\pic\\include\\c90\\stdint.h" 3
-typedef signed long int int_least32_t;
-# 136 "C:\\Users\\prelu\\Desktop\\MP\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint_least8_t;
-
-
-
-
-
-
-typedef unsigned int uint_least16_t;
-# 154 "C:\\Users\\prelu\\Desktop\\MP\\pic\\include\\c90\\stdint.h" 3
-typedef __uint24 uint_least24_t;
-
-
-
-
-
-
-
-typedef unsigned long int uint_least32_t;
-# 181 "C:\\Users\\prelu\\Desktop\\MP\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int_fast8_t;
-
-
-
-
-
-
-typedef signed int int_fast16_t;
-# 200 "C:\\Users\\prelu\\Desktop\\MP\\pic\\include\\c90\\stdint.h" 3
-typedef __int24 int_fast24_t;
-
-
-
-
-
-
-
-typedef signed long int int_fast32_t;
-# 224 "C:\\Users\\prelu\\Desktop\\MP\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint_fast8_t;
-
-
-
-
-
-typedef unsigned int uint_fast16_t;
-# 240 "C:\\Users\\prelu\\Desktop\\MP\\pic\\include\\c90\\stdint.h" 3
-typedef __uint24 uint_fast24_t;
-
-
-
-
-
-
-typedef unsigned long int uint_fast32_t;
-# 268 "C:\\Users\\prelu\\Desktop\\MP\\pic\\include\\c90\\stdint.h" 3
-typedef int32_t intmax_t;
-# 282 "C:\\Users\\prelu\\Desktop\\MP\\pic\\include\\c90\\stdint.h" 3
-typedef uint32_t uintmax_t;
-
-
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
-# 2 "SLAVE_3.c" 2
-
-# 1 "./ADC.h" 1
-
-
-
-# 1 "C:\\Users\\prelu\\Desktop\\MP\\pic\\include\\c90\\stdint.h" 1 3
-# 4 "./ADC.h" 2
-
-
-
-void conf_ADC(void);
-void ADC_start(void);
-void TAD(void);
-void AD_cycle(void);
-# 3 "SLAVE_3.c" 2
-
-# 1 "./SPI.h" 1
-
-
-
-
-
+# 6 "./SPI.h" 2
 
 
 typedef enum
@@ -2680,95 +2529,46 @@ void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
 void spiWrite(char);
 unsigned spiDataReady();
 char spiRead();
-# 4 "SLAVE_3.c" 2
+# 1 "SPI.c" 2
 
 
-
-
-#pragma config FOSC = EXTRC_CLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
-
-
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
-
-
-
-
-
-uint8_t CONVERSION = 0;
-
-
-
-void setup(void);
-void ADC(void);
-void __attribute__((picinterrupt(("")))) isr(void){
-   if(SSPIF == 1){
-        PORTD = spiRead();
-        spiWrite(CONVERSION);
-        SSPIF = 0;
+void spiInit(Spi_Type sType, Spi_Data_Sample sDataSample, Spi_Clock_Idle sClockIdle, Spi_Transmit_Edge sTransmitEdge)
+{
+    TRISC5 = 0;
+    if(sType & 0b00000100)
+    {
+        SSPSTAT = sTransmitEdge;
+        TRISC3 = 1;
     }
-}
-void setup(void){
-
-
-    ANSELbits.ANS0 = 0;
-    TRISD= 0;
-    TRISB=0;
-    ANSELH=0;
-    PORTA=0;
-    TRISAbits.TRISA0=1;
-    ANSELbits.ANS0=1;
-    conf_ADC();
-
-    INTCONbits.GIE = 1;
-    INTCONbits.PEIE = 1;
-    PIR1bits.SSPIF = 0;
-    PIE1bits.SSPIE = 1;
-    TRISAbits.TRISA5 = 1;
-
-    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
-    conf_ADC();
-}
-void ADC(void){
-    if(ADCON0bits.GO){
-        return;
+    else
+    {
+        SSPSTAT = sDataSample | sTransmitEdge;
+        TRISC3 = 0;
     }
-    TAD();
-    AD_cycle();
-    CONVERSION=ADRESH;
+
+    SSPCON = sType | sClockIdle;
 }
-void main(void) {
-    setup();
-    while(1){
-        ADC();
 
-        PORTB=CONVERSION;
-       if(CONVERSION<0b00001101){
-          PORTDbits.RD0=0;
-          PORTDbits.RD1=0;
-          PORTDbits.RD2=1;
+static void spiReceiveWait()
+{
+    while ( !SSPSTATbits.BF );
+}
 
-        }
-        else if(CONVERSION<0b00010010){
-           PORTDbits.RD0=0;
-           PORTDbits.RD1=1;
-           PORTDbits.RD2=0;
+void spiWrite(char dat)
+{
+    SSPBUF = dat;
+}
 
-        }
-        else{
-           PORTDbits.RD0=1;
-           PORTDbits.RD1=0;
-           PORTDbits.RD2=0;
-        }
+unsigned spiDataReady()
+{
+    if(SSPSTATbits.BF)
+        return 1;
+    else
+        return 0;
+}
 
-    }
+char spiRead()
+{
+    spiReceiveWait();
+    return(SSPBUF);
 }

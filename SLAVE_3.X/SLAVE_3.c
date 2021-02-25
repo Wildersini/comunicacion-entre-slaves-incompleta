@@ -1,6 +1,7 @@
 #include <xc.h>
 #include <stdint.h>
 #include "ADC.h"
+#include "SPI.h"
 
 
 // CONFIG1
@@ -29,6 +30,13 @@ uint8_t CONVERSION = 0;
 //unsigned Canal_ADC (unsigned short x);
 void setup(void);
 void ADC(void);
+void __interrupt() isr(void){
+   if(SSPIF == 1){
+        PORTD = spiRead();
+        spiWrite(CONVERSION);
+        SSPIF = 0;
+    }
+}
 void setup(void){
     //TRISA = 0b00000001;
     
@@ -39,6 +47,15 @@ void setup(void){
     PORTA=0;
     TRISAbits.TRISA0=1;
     ANSELbits.ANS0=1;
+    conf_ADC();   
+    
+    INTCONbits.GIE = 1;         // Habilitamos interrupciones
+    INTCONbits.PEIE = 1;        // Habilitamos interrupciones PEIE
+    PIR1bits.SSPIF = 0;         // Borramos bandera interrupción MSSP
+    PIE1bits.SSPIE = 1;         // Habilitamos interrupción MSSP
+    TRISAbits.TRISA5 = 1;       // Slave Select
+   
+    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
     conf_ADC();   
 }
 void ADC(void){
