@@ -1,8 +1,10 @@
 #include <xc.h>
 #include <stdint.h>
 #include "ADC.h"
+#include <pic16f887.h>
+#include "SPI.h"
 
-
+#define _XTAL_FREQ 8000000
 // CONFIG1
 #pragma config FOSC = EXTRC_CLKOUT// Oscillator Selection bits (RC oscillator: CLKOUT function on RA6/OSC2/CLKOUT pin, RC on RA7/OSC1/CLKIN)
 #pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled and can be enabled by SWDTEN bit of the WDTCON register)
@@ -23,19 +25,29 @@
 // Variables
 //******************************************************************************
 
-//uint8_t CONVERSION = 0;
+float map;
 
 
 //unsigned Canal_ADC (unsigned short x);
 void setup(void);
 void ADC(void);
+char mapeo(void);
+
+
+void __interrupt() isr(void){
+   if(SSPIF == 1){
+        PORTD = spiRead();
+        spiWrite(map);
+        SSPIF = 0;
+    }
+}
 void main(void) {
     setup();
     while(1){
         ADC();
-        PORTD=ADRESH;
+        map=mapeo();
+       // PORTD=ADRESH;      
         }
-  
     }
     
    
@@ -48,7 +60,15 @@ void setup(void){
     PORTA=0;
     TRISAbits.TRISA0=1;
     ANSELbits.ANS0=1;
+    INTCONbits.GIE = 1;         // Habilitamos interrupciones
+    INTCONbits.PEIE = 1;        // Habilitamos interrupciones PEIE
+    PIR1bits.SSPIF = 0;         // Borramos bandera interrupción MSSP
+    PIE1bits.SSPIE = 1;         // Habilitamos interrupción MSSP
+    TRISAbits.TRISA5 = 1;       // Slave Select
+   
+    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
     conf_ADC();   
+    
 }
 void ADC(void){
     if(ADCON0bits.GO){
@@ -56,6 +76,13 @@ void ADC(void){
     }
     TAD();
     AD_cycle();
+}
+char mapeo(void){
+    char volt;
+    while (ADCON0bits.GO == 1){
+        volt = ADRESH;//((ADRESH * 5.0)/255); //Conversion de 0V-5V
+    }
+    return volt;
 }
 
 

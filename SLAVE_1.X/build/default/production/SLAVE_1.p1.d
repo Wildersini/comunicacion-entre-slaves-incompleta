@@ -1,3 +1,4 @@
 build/default/production/SLAVE_1.p1:  \
 SLAVE_1.c  \
-ADC.h 
+ADC.h  \
+SPI.h 

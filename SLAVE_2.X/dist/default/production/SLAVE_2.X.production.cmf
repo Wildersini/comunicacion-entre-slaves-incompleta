@@ -11,11 +11,26 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\prelu\AppData\Local\Temp\s120.o
-end_init CODE 0 0 0 3 2
+$C:\Users\prelu\AppData\Local\Temp\st4c.o
+reset_vec CODE 0 0 0 3 2
+end_init CODE 0 C C 3 2
+config CONFIG 4 2007 2007 2 2
 $dist/default/production\SLAVE_2.X.production.o
-cinit CODE 0 7FC 7FC 4 2
-maintext CODE 0 7F9 7F9 3 2
+cinit CODE 0 F F 6 2
+text1 CODE 0 59 59 1D 2
+text2 CODE 0 93 93 16 2
+text3 CODE 0 B7 B7 B 2
+text4 CODE 0 15 15 26 2
+text5 CODE 0 76 76 1D 2
+text6 CODE 0 3B 3B 1E 2
+text7 CODE 0 D2 D2 6 2
+text8 CODE 0 C2 C2 9 2
+text9 CODE 0 CB CB 7 2
+maintext CODE 0 A9 A9 E 2
+cstackCOMMON COMMON 1 70 70 7 1
+intentry CODE 0 4 4 8 2
+bssCOMMON COMMON 1 77 77 2 1
+config CONFIG 4 2007 2007 2 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -30,25 +45,24 @@ BANK0 20-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST 3-7F8 2
-CONST 800-1FFF 2
-ENTRY 3-7F8 2
-ENTRY 800-1FFF 2
+CONST 3-3 2
+CONST D8-1FFF 2
+ENTRY 3-3 2
+ENTRY D8-1FFF 2
 IDLOC 2000-2003 2
 STACK 110-16F 1
-CODE 3-7F8 2
-CODE 800-1FFF 2
+CODE 3-3 2
+CODE D8-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-10F 1
 SFR3 180-18F 1
-COMMON 70-7D 1
-CONFIG 2007-2008 2
+COMMON 79-7D 1
 EEDATA 2100-21FF 2
-STRCODE 3-7F8 2
-STRCODE 800-1FFF 2
-STRING 3-7F8 2
-STRING 800-1FFF 2
+STRCODE 3-3 2
+STRCODE D8-1FFF 2
+STRING 3-3 2
+STRING D8-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -63,14 +77,79 @@ STRING 800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\SLAVE_2.X.production.o
-7FC cinit CODE >411:C:\Users\prelu\AppData\Local\Temp\s120.s
-7FC cinit CODE >414:C:\Users\prelu\AppData\Local\Temp\s120.s
-7FC cinit CODE >420:C:\Users\prelu\AppData\Local\Temp\s120.s
-7FC cinit CODE >422:C:\Users\prelu\AppData\Local\Temp\s120.s
-7FD cinit CODE >423:C:\Users\prelu\AppData\Local\Temp\s120.s
-7F9 maintext CODE >11:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
-7F9 maintext CODE >12:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
-7F9 maintext CODE >13:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+F cinit CODE >627:C:\Users\prelu\AppData\Local\Temp\st4c.s
+F cinit CODE >630:C:\Users\prelu\AppData\Local\Temp\st4c.s
+F cinit CODE >641:C:\Users\prelu\AppData\Local\Temp\st4c.s
+10 cinit CODE >642:C:\Users\prelu\AppData\Local\Temp\st4c.s
+11 cinit CODE >648:C:\Users\prelu\AppData\Local\Temp\st4c.s
+11 cinit CODE >650:C:\Users\prelu\AppData\Local\Temp\st4c.s
+12 cinit CODE >651:C:\Users\prelu\AppData\Local\Temp\st4c.s
+4 intentry CODE >38:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+CB text9 CODE >20:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SPI.c
+CB text9 CODE >22:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SPI.c
+D1 text9 CODE >23:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SPI.c
+C2 text8 CODE >38:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SPI.c
+C2 text8 CODE >40:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SPI.c
+C7 text8 CODE >41:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SPI.c
+CA text8 CODE >42:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SPI.c
+D2 text7 CODE >25:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SPI.c
+D3 text7 CODE >27:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SPI.c
+D7 text7 CODE >28:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SPI.c
+3B text6 CODE >38:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+3B text6 CODE >39:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+41 text6 CODE >40:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+49 text6 CODE >41:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+4F text6 CODE >42:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+52 text6 CODE >44:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+76 text5 CODE >85:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+76 text5 CODE >86:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+7C text5 CODE >87:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+85 text5 CODE >88:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+86 text5 CODE >89:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+8A text5 CODE >90:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+90 text5 CODE >91:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+92 text5 CODE >93:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+15 text4 CODE >75:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+15 text4 CODE >76:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+1B text4 CODE >77:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+24 text4 CODE >78:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+25 text4 CODE >79:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+29 text4 CODE >80:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+2F text4 CODE >81:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+31 text4 CODE >82:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+3A text4 CODE >84:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+B7 text3 CODE >94:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+B7 text3 CODE >95:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+BC text3 CODE >96:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+C1 text3 CODE >97:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+93 text2 CODE >3:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SPI.c
+94 text2 CODE >5:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SPI.c
+97 text2 CODE >6:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SPI.c
+9B text2 CODE >8:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SPI.c
+9D text2 CODE >9:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SPI.c
+9E text2 CODE >10:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SPI.c
+9F text2 CODE >13:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SPI.c
+A2 text2 CODE >14:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SPI.c
+A3 text2 CODE >15:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SPI.c
+A3 text2 CODE >17:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SPI.c
+A8 text2 CODE >18:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SPI.c
+59 text1 CODE >58:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+59 text1 CODE >59:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+5D text1 CODE >60:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+5E text1 CODE >61:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+5F text1 CODE >62:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+60 text1 CODE >64:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+63 text1 CODE >66:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+64 text1 CODE >67:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+65 text1 CODE >68:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+68 text1 CODE >69:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+6B text1 CODE >70:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+6C text1 CODE >72:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+75 text1 CODE >74:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+A9 maintext CODE >47:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+A9 maintext CODE >48:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+AE maintext CODE >49:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
+AE maintext CODE >50:C:\Users\prelu\Desktop\Digital\Poyecto_1_Digital_2\Proyecto_1_Digital_2\SLAVE_2.X\SLAVE_2.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -84,49 +163,76 @@ $dist/default/production\SLAVE_2.X.production.o
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 2 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
-__Hspace_0 800 0 ABS 0 - -
-__Hspace_1 0 0 ABS 0 - -
+__Hspace_0 D8 0 ABS 0 - -
+__Hspace_1 79 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
+__Hspace_4 4010 0 ABS 0 - -
+spiInit@sTransmitEdge 75 0 COMMON 1 cstackCOMMON dist/default/production\SLAVE_2.X.production.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\prelu\AppData\Local\Temp\s120.o
-_main FF2 0 CODE 0 maintext dist/default/production\SLAVE_2.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\prelu\AppData\Local\Temp\st4c.o
+_main 152 0 CODE 0 maintext dist/default/production\SLAVE_2.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
-start 0 0 CODE 0 init C:\Users\prelu\AppData\Local\Temp\s120.o
+start 18 0 CODE 0 init C:\Users\prelu\AppData\Local\Temp\st4c.o
 __size_of_main 0 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
+__HbssCOMMON 0 0 ABS 0 bssCOMMON -
+__end_of_RESTAR 126 0 CODE 0 text5 dist/default/production\SLAVE_2.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\prelu\AppData\Local\Temp\s120.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\prelu\AppData\Local\Temp\s120.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\prelu\AppData\Local\Temp\s120.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\prelu\AppData\Local\Temp\s120.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\prelu\AppData\Local\Temp\s120.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\prelu\AppData\Local\Temp\s120.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\prelu\AppData\Local\Temp\st4c.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\prelu\AppData\Local\Temp\st4c.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\prelu\AppData\Local\Temp\st4c.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\prelu\AppData\Local\Temp\st4c.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\prelu\AppData\Local\Temp\st4c.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\prelu\AppData\Local\Temp\st4c.o
+__LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
+_ANSELH 189 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
+_CONTEO 16E 0 CODE 0 text3 dist/default/production\SLAVE_2.X.production.o
+__size_of_spiInit 0 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
+__size_of_spiRead 0 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\prelu\AppData\Local\Temp\s120.o
-___stacklo 0 0 ABS 0 - C:\Users\prelu\AppData\Local\Temp\s120.o
-start_initialization FF8 0 CODE 0 cinit dist/default/production\SLAVE_2.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\prelu\AppData\Local\Temp\s120.o
+___stackhi 0 0 ABS 0 - C:\Users\prelu\AppData\Local\Temp\st4c.o
+___stacklo 0 0 ABS 0 - C:\Users\prelu\AppData\Local\Temp\st4c.o
+__size_of_SUMAR 0 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
+__size_of_setup 0 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
+spiInit@sDataSample 73 0 COMMON 1 cstackCOMMON dist/default/production\SLAVE_2.X.production.o
+start_initialization 1E 0 CODE 0 cinit dist/default/production\SLAVE_2.X.production.o
+__size_of_CONTEO 0 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
+_TRISAbits 85 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
+_TRISCbits 87 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
+_RESTAR EC 0 CODE 0 text5 dist/default/production\SLAVE_2.X.production.o
+_SSPBUF 13 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
+_SSPCON 14 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
+_TRISC3 43B 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
+_TRISC5 43D 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\prelu\AppData\Local\Temp\st4c.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
 __Hbank3 0 0 ABS 0 bank3 -
-__Hcinit 1000 0 CODE 0 cinit -
+__Hcinit 2A 0 CODE 0 cinit -
+__size_of_spiReceiveWait 0 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
 __Hstack 0 0 STACK 2 stack -
 __Hmaintext 0 0 ABS 0 maintext -
+__end_of_spiInit 152 0 CODE 0 text2 dist/default/production\SLAVE_2.X.production.o
+__end_of_spiRead 196 0 CODE 0 text8 dist/default/production\SLAVE_2.X.production.o
 __Hcommon 0 0 ABS 0 common -
+__Hconfig 4012 0 CONFIG 4 config -
 __Lbank0 0 0 ABS 0 bank0 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Lbank2 0 0 ABS 0 bank2 -
 __Lbank3 0 0 ABS 0 bank3 -
-__Lcinit FF8 0 CODE 0 cinit -
+__Lcinit 1E 0 CODE 0 cinit -
 __Lstack 0 0 STACK 2 stack -
+__size_of_RESTAR 0 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
+_PORTCbits 7 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
+_INTCONbits B 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
-__Hinit 0 0 CODE 0 init -
+__Hinit 18 0 CODE 0 init -
 __Hsfr0 0 0 ABS 0 sfr0 -
 __Hsfr1 0 0 ABS 0 sfr1 -
 __Hsfr2 0 0 ABS 0 sfr2 -
@@ -134,43 +240,86 @@ __Hsfr3 0 0 ABS 0 sfr3 -
 __Htext 0 0 ABS 0 text -
 __Labs1 0 0 ABS 0 abs1 -
 __Lcode 0 0 ABS 0 code -
-__Linit 0 0 CODE 0 init -
+__Linit 18 0 CODE 0 init -
 __Lsfr0 0 0 ABS 0 sfr0 -
 __Lsfr1 0 0 ABS 0 sfr1 -
 __Lsfr2 0 0 ABS 0 sfr2 -
 __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-__S0 800 0 ABS 0 - -
-__S1 0 0 ABS 0 - -
+__S0 D8 0 ABS 0 - -
+__S1 79 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-__Lintentry 0 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\prelu\AppData\Local\Temp\s120.o
-__pmaintext FF2 0 CODE 0 maintext dist/default/production\SLAVE_2.X.production.o
+_isr 76 0 CODE 0 text6 dist/default/production\SLAVE_2.X.production.o
+saved_w 7E 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
+__end_of_isr B2 0 CODE 0 text6 dist/default/production\SLAVE_2.X.production.o
+__Lintentry 8 0 CODE 0 intentry -
+reset_vec 0 0 CODE 0 reset_vec C:\Users\prelu\AppData\Local\Temp\st4c.o
+_PIE1bits 8C 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
+__pmaintext 152 0 CODE 0 maintext dist/default/production\SLAVE_2.X.production.o
 __Lcommon 0 0 ABS 0 common -
+__Lconfig 0 0 CONFIG 4 config -
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
-__Lend_init 0 0 CODE 0 end_init -
+__Lspace_4 0 0 ABS 0 - -
+__pbssCOMMON 77 0 COMMON 1 bssCOMMON dist/default/production\SLAVE_2.X.production.o
+_PIR1bits C 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
+__Lend_init 18 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-end_of_initialization FF8 0 CODE 0 cinit dist/default/production\SLAVE_2.X.production.o
-__Hintentry 0 0 CODE 0 intentry -
+end_of_initialization 22 0 CODE 0 cinit dist/default/production\SLAVE_2.X.production.o
+__Hintentry 18 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
-__Hreset_vec 0 0 CODE 0 reset_vec -
+__Hreset_vec 6 0 CODE 0 reset_vec -
+__ptext1 B2 0 CODE 0 text1 dist/default/production\SLAVE_2.X.production.o
+__ptext2 126 0 CODE 0 text2 dist/default/production\SLAVE_2.X.production.o
+__ptext3 16E 0 CODE 0 text3 dist/default/production\SLAVE_2.X.production.o
+__ptext4 2A 0 CODE 0 text4 dist/default/production\SLAVE_2.X.production.o
+__ptext5 EC 0 CODE 0 text5 dist/default/production\SLAVE_2.X.production.o
+__ptext6 76 0 CODE 0 text6 dist/default/production\SLAVE_2.X.production.o
+__ptext7 1A4 0 CODE 0 text7 dist/default/production\SLAVE_2.X.production.o
+__ptext8 184 0 CODE 0 text8 dist/default/production\SLAVE_2.X.production.o
+__ptext9 196 0 CODE 0 text9 dist/default/production\SLAVE_2.X.production.o
+_spiInit 126 0 CODE 0 text2 dist/default/production\SLAVE_2.X.production.o
+_spiRead 184 0 CODE 0 text8 dist/default/production\SLAVE_2.X.production.o
+spiWrite@dat 70 0 COMMON 1 cstackCOMMON dist/default/production\SLAVE_2.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
+spiInit@sType 76 0 COMMON 1 cstackCOMMON dist/default/production\SLAVE_2.X.production.o
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
-__end_of__initialization FF8 0 CODE 0 cinit dist/default/production\SLAVE_2.X.production.o
+__end_of__initialization 22 0 CODE 0 cinit dist/default/production\SLAVE_2.X.production.o
+__size_of_spiWrite 0 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
+_spiReceiveWait 196 0 CODE 0 text9 dist/default/production\SLAVE_2.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext -
-__pcstackCOMMON 0 0 COMMON 1 cstackCOMMON dist/default/production\SLAVE_2.X.production.o
-__Hend_init 6 0 CODE 0 end_init -
-__end_of_main FF8 0 CODE 0 maintext dist/default/production\SLAVE_2.X.production.o
+__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\SLAVE_2.X.production.o
+_SSPSTAT 94 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
+__Hend_init 1E 0 CODE 0 end_init -
+__end_of_main 16E 0 CODE 0 maintext dist/default/production\SLAVE_2.X.production.o
+__end_of_SUMAR 76 0 CODE 0 text4 dist/default/production\SLAVE_2.X.production.o
+_PORTB 6 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
+_PORTD 8 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
+_SSPIF 63 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
+_SUMAR 2A 0 CODE 0 text4 dist/default/production\SLAVE_2.X.production.o
+_TRISA 85 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
+_TRISB 86 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
+__end_of_setup EC 0 CODE 0 text1 dist/default/production\SLAVE_2.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
-__initialization FF8 0 CODE 0 cinit dist/default/production\SLAVE_2.X.production.o
+interrupt_function 8 0 CODE 0 intentry dist/default/production\SLAVE_2.X.production.o
+_setup B2 0 CODE 0 text1 dist/default/production\SLAVE_2.X.production.o
+_SSPSTATbits 94 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
+__pintentry 8 0 CODE 0 intentry dist/default/production\SLAVE_2.X.production.o
+__size_of_isr 0 0 ABS 0 - dist/default/production\SLAVE_2.X.production.o
+_contador 77 0 COMMON 1 bssCOMMON dist/default/production\SLAVE_2.X.production.o
+spiInit@sClockIdle 74 0 COMMON 1 cstackCOMMON dist/default/production\SLAVE_2.X.production.o
+__initialization 1E 0 CODE 0 cinit dist/default/production\SLAVE_2.X.production.o
+__end_of_CONTEO 184 0 CODE 0 text3 dist/default/production\SLAVE_2.X.production.o
+_spiWrite 1A4 0 CODE 0 text7 dist/default/production\SLAVE_2.X.production.o
+__end_of_spiReceiveWait 1A4 0 CODE 0 text9 dist/default/production\SLAVE_2.X.production.o
+__end_of_spiWrite 1B0 0 CODE 0 text7 dist/default/production\SLAVE_2.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -196,8 +345,8 @@ __initialization FF8 0 CODE 0 cinit dist/default/production\SLAVE_2.X.production
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cinit 0 7FC FF8 4 2
-maintext 0 7F9 FF2 3 2
+cstackCOMMON 1 70 70 9 1
+intentry 0 4 8 D4 2
 reset_vec 0 0 0 3 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section

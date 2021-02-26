@@ -2639,6 +2639,50 @@ void TAD(void);
 # 3 "SLAVE_1.c" 2
 
 
+# 1 "./SPI.h" 1
+
+
+
+
+
+
+
+typedef enum
+{
+    SPI_MASTER_OSC_DIV4 = 0b00100000,
+    SPI_MASTER_OSC_DIV16 = 0b00100001,
+    SPI_MASTER_OSC_DIV64 = 0b00100010,
+    SPI_MASTER_TMR2 = 0b00100011,
+    SPI_SLAVE_SS_EN = 0b00100100,
+    SPI_SLAVE_SS_DIS = 0b00100101
+}Spi_Type;
+
+typedef enum
+{
+    SPI_DATA_SAMPLE_MIDDLE = 0b00000000,
+    SPI_DATA_SAMPLE_END = 0b10000000
+}Spi_Data_Sample;
+
+typedef enum
+{
+    SPI_CLOCK_IDLE_HIGH = 0b00010000,
+    SPI_CLOCK_IDLE_LOW = 0b00000000
+}Spi_Clock_Idle;
+
+typedef enum
+{
+    SPI_IDLE_2_ACTIVE = 0b00000000,
+    SPI_ACTIVE_2_IDLE = 0b01000000
+}Spi_Transmit_Edge;
+
+
+void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
+void spiWrite(char);
+unsigned spiDataReady();
+char spiRead();
+# 5 "SLAVE_1.c" 2
+
+
 
 
 #pragma config FOSC = EXTRC_CLKOUT
@@ -2655,16 +2699,34 @@ void TAD(void);
 
 #pragma config BOR4V = BOR40V
 #pragma config WRT = OFF
-# 30 "SLAVE_1.c"
+
+
+
+
+
+float map;
+
+
+
 void setup(void);
 void ADC(void);
+char mapeo(void);
+
+
+void __attribute__((picinterrupt(("")))) isr(void){
+   if(SSPIF == 1){
+        PORTD = spiRead();
+        spiWrite(map);
+        SSPIF = 0;
+    }
+}
 void main(void) {
     setup();
     while(1){
         ADC();
-        PORTD=ADRESH;
-        }
+        map=mapeo();
 
+        }
     }
 
 
@@ -2677,7 +2739,15 @@ void setup(void){
     PORTA=0;
     TRISAbits.TRISA0=1;
     ANSELbits.ANS0=1;
+    INTCONbits.GIE = 1;
+    INTCONbits.PEIE = 1;
+    PIR1bits.SSPIF = 0;
+    PIE1bits.SSPIE = 1;
+    TRISAbits.TRISA5 = 1;
+
+    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
     conf_ADC();
+
 }
 void ADC(void){
     if(ADCON0bits.GO){
@@ -2685,4 +2755,11 @@ void ADC(void){
     }
     TAD();
     AD_cycle();
+}
+char mapeo(void){
+    char volt;
+    while (ADCON0bits.GO == 1){
+        volt = ADRESH;
+    }
+    return volt;
 }
